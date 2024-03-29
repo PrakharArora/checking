@@ -15,3 +15,19 @@ export const Api = async() => {
     throw error;
 }
 };
+
+export const postApi = async(data) => {
+  try {
+    const response = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+      userId: data.userId,
+      id: data.id,
+      title: data.title,
+      body: data.body,
+    });
+    console.log(response , "Data Posted Successfully");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+}
+}
